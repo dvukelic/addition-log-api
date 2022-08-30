@@ -7,6 +7,9 @@ import com.dvukelic.logs.adlogs.service.ClickService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.util.TimeZone;
+
 @Service
 public class ClickServiceImpl implements ClickService {
 
@@ -16,8 +19,13 @@ public class ClickServiceImpl implements ClickService {
     @Override
     public Clicks getAmountOfClickByCampaign(int campaign) {
         Clicks clicks = new Clicks();
-
         clicks.setNumberOfClicks(clickAdLogRepo.numberOfEventsByCampaign(campaign));
+        return clicks;
+    }
+
+    public Clicks getAmountOfClickByCampaignAndTime(Integer campaign_id, Date dateTimeFrom, Date dateTimeTo) {
+        Clicks clicks = new Clicks();
+        clicks.setNumberOfClicks(clickAdLogRepo.numberOfEventsByCampaignAndDate(campaign_id,dateTimeFrom,dateTimeTo));
         return clicks;
     }
 }

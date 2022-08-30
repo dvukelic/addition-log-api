@@ -11,4 +11,11 @@ public class Clicks {
     public void setNumberOfClicks(Integer numberOfClicks) {
         this.numberOfClicks = numberOfClicks;
     }
+
+    @Override
+    public String toString() {
+        return "Clicks{" +
+                "numberOfClicks=" + numberOfClicks +
+                '}';
+    }
 }
