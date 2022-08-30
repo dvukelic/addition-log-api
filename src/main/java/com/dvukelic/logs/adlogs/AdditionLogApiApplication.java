@@ -17,5 +17,4 @@ public class AdditionLogApiApplication {
     public void init(){
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
     }
-
 }
